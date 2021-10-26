@@ -804,6 +804,7 @@ static const m_option_t mp_opts[] = {
     {"watch-later-dir", OPT_STRING(watch_later_dir),
         .flags = M_OPT_FILE},
     {"watch-later-directory", OPT_ALIAS("watch-later-dir")},
+    {"watch-later-use-title", OPT_BOOL(watch_later_use_title)},
     {"watch-later-options", OPT_STRINGLIST(watch_later_options)},
 
     {"ordered-chapters", OPT_BOOL(ordered_chapters)},

@@ -211,7 +211,9 @@ static char *mp_get_playback_resume_config_filename(struct MPContext *mpctx,
     void *tmp = talloc_new(NULL);
     const char *realpath = fname;
     bstr bfname = bstr0(fname);
-    if (!mp_is_url(bfname)) {
+    if(mpctx->opts->watch_later_use_title) {
+        realpath = mpctx->opts->wintitle ? mpctx->opts->wintitle : mpctx->opts->media_title;
+    } else if (!mp_is_url(bfname)) {
         if (opts->ignore_path_in_watch_later_config) {
             realpath = mp_basename(fname);
         } else {
